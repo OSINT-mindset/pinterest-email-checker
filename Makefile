@@ -1,8 +1,8 @@
-PROJECT_NAME=osint_cli_tool_skeleton
-LINT_FILES=osint_cli_tool_skeleton
+PROJECT_NAME=pinterest_email_checker
+LINT_FILES=pinterest_email_checker
 
 test:
-	coverage run --source=./osint_cli_tool_skeleton -m pytest tests
+	coverage run --source=./pinterest_email_checker -m pytest tests
 	coverage report -m
 	coverage html
 

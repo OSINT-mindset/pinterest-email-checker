@@ -35,6 +35,9 @@ class PlainOutput(Output):
         olist = self.data
 
         for o in olist:
+            if not o:
+                continue
+
             i = o.input_data
 
             text += f'Target: {self.colored(str(i), "green")}\n'

@@ -98,7 +98,7 @@ def setup_arguments_parser():
         "--cookie-jar-file",
         metavar="COOKIE_FILE",
         dest="cookie_file",
-        default='',
+        default='cookies.txt',
         help="File with cookies.",
     )
     parser.add_argument(
@@ -192,6 +192,11 @@ async def main():
 
     logger.setLevel(log_level)
 
+    if not os.path.exists(args.cookie_file):
+        print(f'File {args.cookie_file} is not exist.')
+        print('You must specify path to existing file with cookies of you Pinterest account with `--cookie-jar-file`.')
+        sys.exit(1)
+
     # server
     if args.server:
         await CheckServer(
@@ -228,6 +233,7 @@ async def main():
     processor = Processor(
         no_progressbar=args.no_progressbar,
         proxy=args.proxy,
+        cookie_file=args.cookie_file,
     )
 
     output_data = await processor.process(input_data)
