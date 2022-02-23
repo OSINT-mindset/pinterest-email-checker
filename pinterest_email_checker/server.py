@@ -15,6 +15,7 @@ class CheckServer:
     def __init__(self, addr, *args, **kwargs):
         self.addr = addr
         self.proxy = kwargs.get('proxy')
+        self.cookie_file = kwargs.get('cookie_file')
         self.loop = kwargs.get('loop')
 
     async def status(self, request):
@@ -39,6 +40,7 @@ class CheckServer:
             processor = Processor(
                 no_progressbar=True,
                 proxy=self.proxy,
+                cookie_file=self.cookie_file,
             )
 
             for t in targets:

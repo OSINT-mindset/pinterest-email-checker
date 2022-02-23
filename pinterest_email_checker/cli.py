@@ -202,6 +202,7 @@ async def main():
         await CheckServer(
             proxy=args.proxy,
             addr=args.server,
+            cookie_file=args.cookie_file,
             loop=asyncio.get_event_loop(),
         ).start(debug=args.debug)
 
