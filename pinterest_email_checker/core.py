@@ -6,10 +6,10 @@ from aiohttp import TCPConnector, ClientSession
 
 from .executor import AsyncioProgressbarQueueExecutor, AsyncioSimpleExecutor
 
-PINTEREST_URL = 'https://www.pinterest.ru/resource/ConversationsResource/create/'
+PINTEREST_URL = 'https://ru.pinterest.com/resource/ConversationsResource/create/'
 
 PINTEREST_HEADERS = {
-  'authority': 'www.pinterest.ru',
+  'authority': 'ru.pinterest.com',
   'pragma': 'no-cache',
   'cache-control': 'no-cache',
   'sec-ch-ua': '" Not A;Brand";v="99", "Chromium";v="98", "Google Chrome";v="98"',
@@ -23,11 +23,11 @@ PINTEREST_HEADERS = {
   'x-requested-with': 'XMLHttpRequest',
   'x-pinterest-source-url': '/edit/history/',
   'sec-ch-ua-platform': '"Android"',
-  'origin': 'https://www.pinterest.ru',
+  'origin': 'https://ru.pinterest.com',
   'sec-fetch-site': 'same-origin',
   'sec-fetch-mode': 'cors',
   'sec-fetch-dest': 'empty',
-  'referer': 'https://www.pinterest.ru/',
+  'referer': 'https://ru.pinterest.com/',
   'accept-language': 'en,ru-RU;q=0.9,ru;q=0.8,en-US;q=0.7',
 }
 
@@ -154,11 +154,11 @@ class Processor:
             'data': '{"options":{"user_ids":[],"emails":["'+input_data.value+'"],"text":"","pinId":"","no_fetch_context_on_resource":false},"context":{}}'
         }
 
-        csrftoken = self.session.cookie_jar._cookies['www.pinterest.ru']['csrftoken'].value
+        csrftoken = self.session.cookie_jar._cookies['ru.pinterest.com']['csrftoken'].value
 
         headers = PINTEREST_HEADERS
         headers.update({
-          'x-csrftoken': '4650759346c189e2da4e34dedcb45e95',
+          'x-csrftoken': '9b893189a83f0482e95ac74a6f2ce618',
         })
 
         try:
